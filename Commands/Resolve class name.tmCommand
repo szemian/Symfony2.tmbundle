@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env php
+&lt;?php
+	require $_ENV['TM_BUNDLE_SUPPORT'] . '/lib/resolve_namespace.php';
+	echo resolveClassName($_ENV['TM_CURRENT_WORD'], $_ENV['TM_FILEPATH']);
+?&gt;
+</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>~</string>
+	<key>name</key>
+	<string>Resolve class name</string>
+	<key>output</key>
+	<string>showAsTooltip</string>
+	<key>scope</key>
+	<string>entity.other.inherited-class.php, support.class.php</string>
+	<key>uuid</key>
+	<string>EE0459F8-4335-4CE0-AB04-FF889FAEAAB1</string>
+</dict>
+</plist>

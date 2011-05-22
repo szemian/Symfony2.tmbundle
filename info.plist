@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Symfony2 Standard Edition</string>
+	<key>ordering</key>
+	<array>
+		<string>5C25280E-5268-4FD0-A6E4-D5C3EC59DA6F</string>
+		<string>EC037B28-7A14-4E5D-968A-33F2A7E575A6</string>
+		<string>EE0459F8-4335-4CE0-AB04-FF889FAEAAB1</string>
+	</array>
+	<key>uuid</key>
+	<string>610043EB-1431-4B42-9903-EB03A3CC9990</string>
+</dict>
+</plist>

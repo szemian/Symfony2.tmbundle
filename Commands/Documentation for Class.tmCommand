@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>if [[ ${TM_CURRENT_WORD:0:8} != "Symfony\\" ]]
+then
+	exit_show_tool_tip "No documentation found for '${TM_CURRENT_WORD}'"
+else
+	current_word=`echo ${TM_CURRENT_WORD} | sed 's=\\\=/=g'`
+	URL="http://api.symfony.com/2.0/${TM_CURRENT_WORD}.html"
+	exit_show_html "&lt;meta http-equiv='Refresh' content='0;URL=$URL'&gt;"
+fi</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>^h</string>
+	<key>name</key>
+	<string>Documentation for Class</string>
+	<key>output</key>
+	<string>showAsTooltip</string>
+	<key>scope</key>
+	<string>entity.name.type.namespace.php, support.other.namespace</string>
+	<key>uuid</key>
+	<string>5C25280E-5268-4FD0-A6E4-D5C3EC59DA6F</string>
+</dict>
+</plist>
