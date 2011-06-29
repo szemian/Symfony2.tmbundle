@@ -18,15 +18,15 @@ else {
     require_once $_ENV['TM_PROJECT_DIRECTORY'].'/app/bootstrap.php.cache';
     require 'resolve_namespace.php';
     
-    if(strpos($_ENV['TM_SCOPE'], 'entity.other.inherited-class.php') 
+    if(strpos(getenv('TM_SCOPE'), 'entity.other.inherited-class.php') 
         || strpos($_ENV['TM_SCOPE'], 'support.class.php')) {
         
-        $_ENV['TM_CURRENT_WORD'] = resolveClassName($_ENV['TM_CURRENT_WORD'], $_ENV['TM_FILEPATH']);
+        getenv('TM_CURRENT_WORD') = resolveClassName(getenv('TM_CURRENT_WORD'), getenv('TM_FILEPATH'));
     }
     
-    if($path = $loader->findFile($_ENV['TM_CURRENT_WORD'])) {
+    if($path = $loader->findFile(getenv('TM_CURRENT_WORD'))) {
         echo realpath($path);
     } else {
-        echo 'Class ' . $_ENV['TM_CURRENT_WORD'] . ' source file not found.';
+        echo 'Class ' . getenv('TM_CURRENT_WORD') . ' source file not found.';
     }
 }
