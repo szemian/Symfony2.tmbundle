@@ -9,24 +9,25 @@ if (!defined('PHP_VERSION_ID')) {
     define('PHP_VERSION_ID', ($version[0] * 10000 + $version[1] * 100 + $version[2]));
 }
 
-
 if (PHP_VERSION_ID < 50302) {
     echo "Php version 5.3.2 and above required. Your php version is ".phpversion()."\nPrepend custom php path in Textmate Preferences > Advanced > Shell Variables > PATH";
 }
 else {
 
-    require_once $_ENV['TM_PROJECT_DIRECTORY'].'/app/bootstrap.php.cache';
+    require_once getenv('TM_PROJECT_DIRECTORY').'/app/bootstrap.php.cache';
     require 'resolve_namespace.php';
+
+    $current_word = getenv('TM_CURRENT_WORD');
     
-    if(strpos($_ENV['TM_SCOPE'], 'entity.other.inherited-class.php') 
-        || strpos($_ENV['TM_SCOPE'], 'support.class.php')) {
+    if(strpos(getenv('TM_SCOPE'), 'entity.other.inherited-class.php') 
+        || strpos(getenv('TM_SCOPE'), 'support.class.php')) {
         
-        $_ENV['TM_CURRENT_WORD'] = resolveClassName($_ENV['TM_CURRENT_WORD'], $_ENV['TM_FILEPATH']);
+        $current_word = resolveClassName($current_word, getenv('TM_FILEPATH'));
     }
     
-    if($path = $loader->findFile($_ENV['TM_CURRENT_WORD'])) {
+    if($path = $loader->findFile($current_word)) {
         echo realpath($path);
     } else {
-        echo 'Class ' . $_ENV['TM_CURRENT_WORD'] . ' source file not found.';
+        echo 'Class ' . $current_word . ' source file not found.';
     }
 }
