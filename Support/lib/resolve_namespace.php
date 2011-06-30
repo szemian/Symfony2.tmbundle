@@ -35,8 +35,7 @@ function resolveClassName($className, $sourcePath) {
                     $part = trim($part);
                     if(strrpos($part, $className)==(strlen($part) - strlen($className))) {
                         $imported = trim(str_replace('use', '', $part));                         
-                        fclose($file);
-                        break;
+                        break(2);
                     }
                 }
             }
